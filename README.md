@@ -21,9 +21,9 @@ cd hands-on-rag
 2. Create a virtual environment:
 ```bash
 python -m venv venv
-source /root/.virtualenvs/hands-on_RAG_for_Production/bin/activate
+source venv/bin/activate
+#source /root/.virtualenvs/hands-on_RAG_for_Production/bin/activate
 # On Windows: venv\Scripts\activate
-# source venv/bin/activate
 ```
 
 3. Install dependencies for the chapter you want to run:
