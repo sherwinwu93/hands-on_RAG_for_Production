@@ -5,6 +5,7 @@ from presidio_anonymizer.entities import OperatorConfig
 
 # 方法检查出 敏感信息,并将其替换成typed placeholder. eg: <PERSON>,<PHONE_NUMBER>
 def entity_aware_redaction(text):
+    """检索敏感信息,并用占位符替代: eg: Sherwin -> <DOCTOR>"""
     analyzer = AnalyzerEngine()
     anoymizer = AnonymizerEngine()
 
