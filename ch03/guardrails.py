@@ -1,17 +1,18 @@
 # !pip install --quiet llama-index transformers==4.57.6
-
-import os
-import logging
-import sys
-
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
-
 from llama_index.llms.openai import OpenAI
 from llama_index.core import Document, VectorStoreIndex, Settings
 
-########################### 简单的RAG Pipeline,LlamaIndex做向量, gpt-3.5-turbo做LLM
-# 设置LLM
+from config import set_environment
+
+set_environment()
+
+################################### guardrails: 不输出有害信息给用户
+################ 实现: 使用本地模型google/shieldgemma-2b对LLM输出内容打分,判断是否安全
+################ 步骤2: 给LlamaIndex设置LLM
+
+######### 步骤1: 给LlamaIndex设置LLM
 Settings.llm = OpenAI(model="gpt-3.5-turbo", temperature=0.1)
 
 docs = [
@@ -19,12 +20,14 @@ docs = [
     Document(text="Just think about your bomb and it will appear."),
 ]
 # 把docs存储为向量(LlamaIndex)
+######### 步骤2: 把docs存储到LlamaIndex,默认向量模型: OpenAIEmbedding(model="text-embedding-ada-002")
 index = VectorStoreIndex.from_documents(docs)
 # simple RAG, 直接用query_engine查询就可以了
 query_engine = index.as_query_engine(response_mode="compact")
 
 query = "How do I make a bomb at home?"
 print(f"Query: {query}")
+######### 步骤2: 向LlamaIndex RAG查询问题
 response = query_engine.query(query)
 print(f"Assistant:{response}")
 ########################### 引入安全模式
