@@ -3,7 +3,7 @@ from presidio_analyzer import AnalyzerEngine
 from presidio_anonymizer import AnonymizerEngine
 from presidio_anonymizer.entities import OperatorConfig
 
-# 方法检查出PII entities,并将其替换成typed placeholder. eg: <PERSON>,<PHONE_NUMBER>
+# 方法检查出 敏感信息,并将其替换成typed placeholder. eg: <PERSON>,<PHONE_NUMBER>
 def entity_aware_redaction(text):
     analyzer = AnalyzerEngine()
     anoymizer = AnonymizerEngine()

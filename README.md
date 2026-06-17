@@ -20,9 +20,10 @@ cd hands-on-rag
 
 2. Create a virtual environment:
 ```bash
-python -m venv venv
-source venv/bin/activate
-#source /root/.virtualenvs/hands-on_RAG_for_Production/bin/activate
+cd /root/.virtualenvs
+python -m venv hands-on_RAG_for_Production
+#source venv/bin/activate
+source /root/.virtualenvs/hands-on_RAG_for_Production/bin/activate
 # On Windows: venv\Scripts\activate
 ```
 
