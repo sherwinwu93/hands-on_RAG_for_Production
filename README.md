@@ -20,6 +20,8 @@ cd hands-on-rag
 
 2. Create a virtual environment:
 ```bash
+# 安装uv
+pip install uv
 cd /root/.virtualenvs
 python -m venv hands-on_RAG_for_Production
 #source venv/bin/activate

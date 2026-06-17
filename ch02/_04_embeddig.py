@@ -1,12 +1,10 @@
 from sentence_transformers import SentenceTransformer
-import random
-import matplotlib.pyplot as plt
 
-# Load the pre-trained Sentence Transformer model
-model = SentenceTransformer('all-MiniLM-L6-v2')
 ######################################
 # 1. 用向量模型把句子转成向量
 # 2. 向量与向量计算余铉相似度
+# 向量模型
+model = SentenceTransformer('all-MiniLM-L6-v2')
 #################### 生成向量
 # List of sentences to encode
 sentences = [
@@ -15,13 +13,11 @@ sentences = [
     "I am a pessimistic person.",
     "I am not an optimistic person."
 ]
-
-# Generate embeddings for the sentences
 embeddings = model.encode(sentences)
-print (embeddings.shape)
-print (embeddings[:, :5])
+print(embeddings.shape)
+print(embeddings[:, :5])
 
-#################### 余铉相似度
+#################### 余铉相似度方针
 # compute the cosine similarity between the embeddings
 similarity_matrix = model.similarity(embeddings, embeddings)
 print(similarity_matrix)

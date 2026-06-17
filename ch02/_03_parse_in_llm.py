@@ -1,6 +1,7 @@
 from openai import OpenAI
 
 from config import set_environment
+from save_image import save_base64_image
 
 set_environment()
 
@@ -32,7 +33,9 @@ completion = client.chat.completions.create(
     ]
 )
 
+print("--------------段落文字")
 print(completion.choices[0].message.content)
+print("--------------段落文字end")
 #################### 提取表格文字
 completion = client.chat.completions.create(
     model=model,
@@ -54,8 +57,9 @@ completion = client.chat.completions.create(
         }
     ]
 )
-
+print("表格文字")
 print(completion.choices[0].message.content)
+print("表格文字end")
 #################### 提取图片
 completion = client.chat.completions.create(
     model=model,
@@ -78,6 +82,4 @@ completion = client.chat.completions.create(
         }
     ]
 )
-
-# 以base64格式输出
-print(completion.choices[0].message.content[:256])
+save_base64_image(completion.choices[0].message.content[:256])
