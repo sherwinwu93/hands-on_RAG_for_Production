@@ -100,7 +100,7 @@ for page_number, page in enumerate(reader.pages, start=1):
                 "text": chunk_text
             })
 
-        if start + chunk_size > len(token_ids):
+        if start + chunk_size >= len(token_ids):
             break
 
 if not chunks:
