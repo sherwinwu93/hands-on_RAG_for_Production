@@ -4,7 +4,7 @@ import torch
 from llama_index.llms.openai import OpenAI
 from llama_index.core import Document, VectorStoreIndex, Settings
 
-from config import set_environment
+from chapter01.config import set_environment
 
 set_environment()
 

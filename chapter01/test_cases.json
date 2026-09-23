@@ -1,0 +1,22 @@
+[
+  {
+    "question": "出差住酒店，每晚最多报销多少？",
+    "expected": "每晚650元",
+    "must_retrieve": "住宿报销上限为每晚650元"
+  },
+  {
+    "question": "高铁一等座可以报销吗？",
+    "expected": "可以，但必须保留部门负责人提前批准这一条件",
+    "must_retrieve": "一等座在部门负责人提前批准后可以报销"
+  },
+  {
+    "question": "飞机商务舱可以报销吗？",
+    "expected": "资料只明确经济舱可以报销，无法确定商务舱",
+    "must_retrieve": "经济舱费用可以报销"
+  },
+  {
+    "question": "公司年假有多少天？",
+    "expected": "资料没有说明，无法确定",
+    "must_retrieve": null
+  }
+]

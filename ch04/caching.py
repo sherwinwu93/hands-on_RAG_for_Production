@@ -1,5 +1,4 @@
 # pip install langchain langchain-openai faiss-cpu redis
-import os
 import redis
 import hashlib
 import json
@@ -17,7 +16,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from pydantic import PrivateAttr
 
-from config import set_environment
+from chapter01.config import set_environment
 
 set_environment()
 

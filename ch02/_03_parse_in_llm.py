@@ -1,6 +1,6 @@
 from openai import OpenAI
 
-from config import set_environment
+from chapter01.config import set_environment
 from save_image import save_base64_image
 
 set_environment()
